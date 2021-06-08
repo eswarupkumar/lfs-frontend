@@ -11,21 +11,21 @@ function Navbar() {
   const token = window.localStorage.getItem("token");
   // console.log(props)
   // console.log("Status :", LOGGED_IN)
-  useEffect(()=>{
-    axios({
-      url:'checktoken',
-      method:"POST",
-      headers:{
-        Authorization: token ? `Bearer ${token}` : "",
-      },
-    })
-    .then((res)=>{
-      console.log(res)
-    })
-    .catch((err)=>{
-      console.log("400 : ",err)
-    })
-  },[])
+  // useEffect(()=>{
+  //   axios({
+  //     url:'checktoken',
+  //     method:"POST",
+  //     headers:{
+  //       Authorization: token ? `Bearer ${token}` : "",
+  //     },
+  //   })
+  //   .then((res)=>{
+  //     console.log(res)
+  //   })
+  //   .catch((err)=>{
+  //     console.log("400 : ",err)
+  //   })
+  // },[])
   const signout = () => {
     // constraint.LOGGED_IN = false;
     setConstraint(false);
