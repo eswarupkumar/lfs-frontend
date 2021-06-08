@@ -2,7 +2,7 @@
   "name": "social-media",
   "version": "0.1.0",
   "private": true,
-  "proxy": "https://lfs-backend.herokuapp.com/",
+  "proxy": "http://localhost:5000/",
   "dependencies": {
     "@nuxtjs/axios": "^5.13.5",
     "@testing-library/jest-dom": "^5.12.0",
