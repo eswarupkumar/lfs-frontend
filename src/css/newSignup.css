@@ -1,0 +1,67 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    /* background: #355C7D; */
+    /* color: white; */
+    /* background-image:  url(img/background.jpg); */
+}
+.Box-1{
+    width: 500px;
+    padding: 30px;
+    position: absolute;
+    top: 56%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background: #1e1240f0;
+    text-align: center;
+    opacity: 1;
+    border-radius: 3%;
+}
+.Box-1 h1{
+    color: white;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+.Box-1 input[type = "email"],.Box-1 input[ type = "Password"],.Box-1 input[ type = "number"],.Box-1 input[ type = "text"]{
+    border: 0;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid #03A9F4;
+    padding: 14px 10px;
+    width: 200px;
+    outline: none;
+    color: white;
+    border-radius: 24px;
+    transition: 0.25s;
+}
+
+.Box-1 input[type = "email"]:focus,.Box-1 input[ type = "Password"]:focus,.Box-1 input[ type = "text"]:focus{
+    width: 280px;
+    border-color: #8BC34A;
+}
+.submit{
+    border: 0;
+    background: none;
+    display: block;
+    margin: 10px auto;
+    text-align: center;
+    border: 2px solid #8BC34A;
+    padding: 14px 40px;
+    outline: none;
+    color: white;
+    border-radius: 24px;
+    transition: 0.25s;
+    cursor: pointer;
+}
+.submit:hover{
+    background: #8BC34A;
+}
+.row1{
+    display: flex;
+}
+.signup{
+    display: flex;
+}

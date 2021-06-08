@@ -1,0 +1,16 @@
+.response-title{
+    text-align: center;
+    margin-top: 5px;
+}
+
+.responses-list{
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+}
+.responese-card{
+    border: 1px solid black;
+    display: flexbox;
+    padding: 10px 10px;
+    margin: 0px 10px;
+}

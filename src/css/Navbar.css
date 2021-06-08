@@ -1,0 +1,81 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.navbar{
+    background-color: #1e1240f0;
+    display: flex;
+    justify-content: space-between;
+}
+.logo{
+    margin: 10px 0px 10px 10px;
+}
+.logo>h2{
+    color: white;
+    font-size: 35px;
+}
+.logo>h2:hover{
+    text-decoration: none;
+}
+.signin{
+    color: white;
+    display: flex;
+}
+
+.signin>ul{
+    margin: 15px 10px 0px 5px;
+    font-size: 18px;
+    cursor: pointer;
+}
+.postsignin{
+    display: flex;
+}
+.postsignin>ul{
+    margin: 6px 10px 0px 10px;
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    width: 345px;
+    justify-content: space-around;
+}
+.signin>ul:hover{
+    color: black;
+}
+#test{
+    text-decoration:'none';
+    color: white;
+}
+.footer{
+    margin-top: 5%;
+    background-color: #F1F2F3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.social-icon{
+    margin: 15px 0px;
+    width: 200px;
+    display: flex;
+    justify-content: space-evenly;
+}
+.social-icon .github{
+    width: 33px;
+    height: 33px;
+}
+.personal-info{
+    margin-bottom: 15px;
+}
+.personal-info>h6,h4,a{
+    text-align: center;
+}
+.personal-info>p{
+    margin-bottom: auto;
+}
+.icon{
+    width: 35px;
+    height: 35px;
+}
+.symbol{
+    color: #898497;
+    /* display: none; */
+}

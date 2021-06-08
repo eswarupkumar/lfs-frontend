@@ -1,0 +1,23 @@
+.item-card{
+    box-shadow: 0px 5px 25px 0px rgb(204 204 204 / 75%);
+    /* border:"2px solid black" */
+    border-radius: 10px;
+    width: 17rem ;
+    display: inline-block;
+    max-height: 450px;
+}
+
+.item-card>img{
+    /* display: none; */
+    object-fit: contain;
+    max-height: 267px;
+    border-radius: 10px 10px 0px 0px;
+}
+
+.card-body{
+    text-align: left;
+    width: max-content;
+}
+.item-desc{
+    display: none;
+}

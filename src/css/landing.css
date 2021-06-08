@@ -1,0 +1,169 @@
+@import url("https://fonts.googleapis.com/css2?family=Staatliches&display=swap");
+.main {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: 100vh;
+}
+.intro {
+  display: flex;
+  flex-direction: row;
+  height: 75hv;
+}
+.part-1 {
+  height: 500px;
+  width: 350px;
+  position: relative;
+  /* border: 3px solid green;  */
+}
+.part-2 {
+  width: 500px;
+  height: 500px;
+}
+
+.title {
+  position: absolute;
+  top: 50%;
+  transform: translate(8%, -50%);
+}
+
+.title > h1 {
+  font-size: 60px;
+  font-weight: 600;
+  font-family: "Staatliches", cursive;
+}
+
+.title > p {
+  font-size: 30px;
+  font-family: "Staatliches", cursive;
+}
+
+.image {
+  position: absolute;
+  top: 50%;
+  left: 18%;
+  transform: translate(100%, -50%);
+}
+
+.button {
+  /* background-color: #ddd; */
+  border: 2px solid black;
+  color: black;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 16px;
+}
+.post-item {
+  align-self: center;
+  /* margin-bottom: 2%; */
+}
+.About {
+  background-color: #7ae1f182;
+}
+.About > h1 {
+  margin-left: 2%;
+  font-family: "Staatliches", cursive;
+}
+
+.total-inspiration{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: -5%;
+}
+
+.inspiration {
+  /* margin: 5% 0px; */
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  /* width: 500px; */
+  max-width: 700px;
+  text-align: center;
+  font-size: 1.125rem;
+}
+
+.section-heading{
+  color: #2E186A;
+  margin: auto;
+  font-size: 2.575rem;
+  padding: 0.5rem 0;
+  /* font-size: 30px; */
+  font-family: "Staatliches", cursive;
+  border-bottom: 3px solid #2E186A;
+  
+}
+
+.inspiration>p{
+  padding: 1.5rem 0;
+}
+
+.btn-custom{
+  margin: auto;
+  background-color: #2E186A;
+  color: white;
+  margin: 2%;
+}
+.btn-custom:hover{
+  color: white;
+}
+/* .custom:hover{
+  background-color: #392277;
+} */
+.total-about{
+  margin-top: 10%;
+}
+.total-about>.section-heading{
+  text-align: center;
+}
+
+.about-heading{
+  width: max-content;
+  margin: auto;
+}
+
+.about-card{
+  display: flex;
+  flex-wrap: wrap;
+  padding: 1.5rem 0;
+  justify-content: space-around;
+}
+
+.info{
+  text-align: center;
+  box-shadow: 0px 5px 25px 0px rgb(204 204 204 / 75%);
+  max-width: 385px;
+}
+
+p{
+  color: rgb(52, 61, 72);
+  font-size: 1.125rem;
+}
+
+.total-contact-form{
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 10%;
+}
+
+.contact-title>.section-heading{
+  width: fit-content;
+  margin: 0;
+}
+.contact-title{
+  margin: 0px 25px;
+}
+
+.contact-form{
+  flex-grow: 2;
+  margin-right: 25px;
+}
+
+.contact-title>p{
+  max-width: 560px;
+}
