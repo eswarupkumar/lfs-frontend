@@ -126,7 +126,7 @@ export default function Home() {
               />
               <h4>List Lost/Found Item</h4>
               <p>
-                List your item on the feed by filling the details and image.
+                List your item on the wall by filling certain details and image.
                 That's it !
               </p>
             </div>
