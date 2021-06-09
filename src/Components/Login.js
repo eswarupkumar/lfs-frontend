@@ -101,7 +101,7 @@ function Login() {
           </button>
           <p style={{ color: "white" }}>
             Don't have an account?{" "}
-            <a style={{ color: "white" }} href="/sign-up">
+            <a style={{ color: "black" }} href="/sign-up">
               Click here
             </a>
           </p>

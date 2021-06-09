@@ -32,7 +32,7 @@ function Navbar() {
 
     console.log("Signed out !");
     axios({
-      url: "/signout",
+      url: "https://lfs-backend.herokuapp.com/signout",
       method: "POST",
       headers: {
         Authorization: token ? `Bearer ${token}` : "",

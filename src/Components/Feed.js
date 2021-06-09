@@ -64,7 +64,7 @@ export default function Feed() {
   useEffect(() => {
     // console.log("Test");
     Axios({
-      url: "/getitem",
+      url: "https://lfs-backend.herokuapp.com/getitem",
       method: "GET",
     })
       .then((response) => {

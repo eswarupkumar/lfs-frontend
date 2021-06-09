@@ -43,7 +43,7 @@ export default class Signup extends Component {
     };
     // console.log(payload.username)
     axios({
-      url: "/signup",
+      url: "https://lfs-backend.herokuapp.com/signup",
       method: "POST",
       data: payload,
       withCredentials: true,

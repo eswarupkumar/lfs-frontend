@@ -41,7 +41,7 @@ function Lost_item() {
       });
 
       axios({
-        url: "http://localhost:5000/postitem",
+        url: "https://lfs-backend.herokuapp.com/postitem",
         method: "POST",
         data: info,
         headers: {

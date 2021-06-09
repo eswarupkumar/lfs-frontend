@@ -35,7 +35,7 @@ export default function Home() {
     };
     Axios({
       method: "POST",
-      url: "/sendmessage",
+      url: "https://lfs-backend.herokuapp.com/sendmessage",
       data: data,
     })
       .then((res) => {
