@@ -47,8 +47,6 @@ function Lost_item() {
         headers: {
           Authorization: token ? `Bearer ${token}` : "",
         },
-        withCredentials: true,
-        credentials: "include",
         onUploadProgress: (ProgressEvent) => {
           console.log(
             "Upload progress: " +
@@ -149,7 +147,7 @@ function Lost_item() {
               <Form.File
                 type="file"
                 id="formimage"
-                label="Image input"
+                label="Upload Image"
                 onChange={(e) => {
                   // console.log(e.target.files)
                   let { files } = e.target;
