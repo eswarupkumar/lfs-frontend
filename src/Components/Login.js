@@ -20,9 +20,8 @@ function Login() {
     axios({
       url: "https://lfs-backend.herokuapp.com/login",
       method: "POST",
-      data: payload,
-      withCredentials: true,
-      credentials: "include",
+      data: payload
+      
       // url: "http://localhost:5000/login"
     })
       .then((response) => {
@@ -102,7 +101,7 @@ function Login() {
           </button>
           <p style={{ color: "white" }}>
             Don't have an account?{" "}
-            <a style={{ color: "black" }} href="/sign-up">
+            <a style={{ color: "white" }} href="/sign-up">
               Click here
             </a>
           </p>
