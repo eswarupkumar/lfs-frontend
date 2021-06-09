@@ -46,8 +46,6 @@ export default class Signup extends Component {
       url: "https://lfs-backend.herokuapp.com/signup",
       method: "POST",
       data: payload,
-      withCredentials: true,
-      credentials: "include",
     })
       .then((response) => {
         console.log("Response is :", response);
