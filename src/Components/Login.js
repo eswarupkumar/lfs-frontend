@@ -18,7 +18,7 @@ function Login() {
       password: document.getElementById("password").value,
     };
     axios({
-      url: "/login",
+      url: "https://lfs-backend.herokuapp.com/login",
       method: "POST",
       data: payload,
       withCredentials: true,
