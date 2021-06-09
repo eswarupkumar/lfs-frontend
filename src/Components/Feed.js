@@ -111,7 +111,7 @@ export default function Feed() {
                   <Card bsPrefix="item-card">
                     <Card.Img
                       variant="top"
-                      src={`http://localhost:5000/${item.itemPictures[0].img}`}
+                      src={`https://lfs-backend.herokuapp.com/${item.itemPictures[0].img}`}
                     />
                     <Card.Body bsPrefix="card-body">
                       <Card.Title
@@ -178,7 +178,7 @@ export default function Feed() {
                   <Card bsPrefix="item-card" key={item.name}>
                     <Card.Img
                       variant="top"
-                      src={`http://localhost:5000/${item.itemPictures[0].img}`}
+                      src={`https://lfs-backend.herokuapp.com/${item.itemPictures[0].img}`}
                     />
                     <Card.Body bsPrefix="card-body">
                       <Card.Title

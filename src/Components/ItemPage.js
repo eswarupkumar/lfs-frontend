@@ -88,7 +88,7 @@ function ItemPage(props) {
   useEffect(() => {
     const { location } = props;
     Axios({
-      url: `/item/${location.search.substring(1).split("=")[1].split("&")[0]}`,
+      url: `https://lfs-backend.herokuapp.com/item/${location.search.substring(1).split("=")[1].split("&")[0]}`,
       method: "GET",
     })
       .then((response) => {
@@ -289,7 +289,7 @@ function ItemPage(props) {
   const submitResponse = () => {
     // console.log(e.target.value)
     Axios({
-      url: `confirmResponse/${messageId}`,
+      url: `https://lfs-backend.herokuapp.com/confirmResponse/${messageId}`,
       method: "POST",
       data: { response: response },
     })
@@ -310,7 +310,7 @@ function ItemPage(props) {
   const delete_item = () => {
     console.log("deleted");
     Axios({
-      url: "/deleteitem",
+      url: "https://lfs-backend.herokuapp.com/deleteitem",
       method: "POST",
       data: { item_id },
     })
@@ -350,7 +350,7 @@ function ItemPage(props) {
       })
     }
     Axios({
-      url: "/edititem",
+      url: "https://lfs-backend.herokuapp.com/edititem",
       method: "POST",
       data:info
     })
@@ -392,7 +392,7 @@ function ItemPage(props) {
   };
   const submitAnswer = () => {
     Axios({
-      url: "/submitAnswer",
+      url: "https://lfs-backend.herokuapp.com/submitAnswer",
       method: "POST",
       data: {
         itemId: item_id,
@@ -443,7 +443,7 @@ function ItemPage(props) {
               return (
                 <div style={{ border: "2px solid black" }}>
                   <img
-                    src={`http://localhost:5000/${i.img}`}
+                    src={`https://lfs-backend.herokuapp.com/${i.img}`}
                     alt="item image"
                   />
                 </div>
