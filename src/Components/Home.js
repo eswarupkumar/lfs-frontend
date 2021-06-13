@@ -112,8 +112,8 @@ export default function Home() {
         <Container fluid className="total-inspiration">
           <div>
             <img
+              className="developer-img"
               src={developer}
-              style={{ width: "500px", height: "500px" }}
               alt=""
             />
           </div>

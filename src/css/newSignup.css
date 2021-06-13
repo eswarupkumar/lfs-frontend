@@ -65,3 +65,13 @@ body{
 .signup{
     display: flex;
 }
+
+@media (max-width: 480px){
+    .Box-1{
+        width: 380px;
+    }    
+    .row1{
+        display: flex;
+        flex-direction: column;
+    }
+}

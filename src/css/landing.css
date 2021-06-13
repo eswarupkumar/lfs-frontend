@@ -166,9 +166,21 @@ p{
 .contact-title>p{
   max-width: 560px;
 }
-
+.developer-img{
+  width: 500px;
+  height: 500px;
+}
 @media (max-width: 1020px){
   .image{
     display: none;
   }
+}
+
+@media (max-width: 480px){
+  .developer-img{
+    /* display: none; */
+    width: 350px;
+    height: 350px;
+  }
+  
 }
