@@ -3,12 +3,14 @@
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  height: 100vh;
+  /* height: 100vh; */
 }
 .intro {
   display: flex;
   flex-direction: row;
-  height: 75hv;
+  justify-content: space-between;
+  flex-wrap: wrap-reverse;
+  /* height: 75hv; */
 }
 .part-1 {
   height: 500px;
@@ -16,10 +18,10 @@
   position: relative;
   /* border: 3px solid green;  */
 }
-.part-2 {
+/* .part-2 {
   width: 500px;
   height: 500px;
-}
+} */
 
 .title {
   position: absolute;
@@ -39,10 +41,7 @@
 }
 
 .image {
-  position: absolute;
-  top: 50%;
-  left: 18%;
-  transform: translate(100%, -50%);
+margin-right: 25px;
 }
 
 .button {
@@ -166,4 +165,10 @@ p{
 
 .contact-title>p{
   max-width: 560px;
+}
+
+@media (max-width: 1020px){
+  .image{
+    display: none;
+  }
 }

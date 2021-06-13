@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+// import { useLocation } from "react-router-dom";
 import { setConstraint } from "../constraints";
 import Navbar from "../Components/Navbar";
 import "../css/feed.css";
 import "../css/item_card.css";
 import Axios from "axios";
-import { Card, Col, Container, Row,Alert } from "react-bootstrap";
+import { Card, Col, Container, Row } from "react-bootstrap";
 
 export default function Feed() {
   // console.log("Status :", LOGGED_IN)
@@ -236,7 +236,7 @@ export default function Feed() {
       .catch((err) => {
         console.log("Error :", err);
       });
-  }, []);
+  },);
 
   return (
     <div>

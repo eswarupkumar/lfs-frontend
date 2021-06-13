@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../css/newSignup.css";
 import axios from "axios";
-import { Redirect, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import Navbar from "../Components/Navbar";
 // import developer from "../img/developer_outline I.svg";
 

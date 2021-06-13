@@ -8,6 +8,7 @@
     "@testing-library/jest-dom": "^5.12.0",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
+    "aos": "^2.3.4",
     "axios": "^0.21.1",
     "bootstrap": "^4.6.0",
     "lodash": "^4.17.21",
@@ -18,6 +19,7 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.0",
     "react-toast-notifications": "^2.4.4",
+    "rough-notation": "^0.5.1",
     "web-vitals": "^0.2.4"
   },
   "scripts": {

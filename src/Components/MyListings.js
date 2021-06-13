@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
 import { setConstraint } from "../constraints";
 import Navbar from "../Components/Navbar";
 import "../css/item_card.css";
@@ -11,9 +10,9 @@ export default function Feed() {
   // console.log("Status :", LOGGED_IN)
   // const [user_info,setuser_info]=useState(localStorage.getItem("user"))
   // const [user_info,setuser_info]=useState(localStorage.getItem('user'))
-  const [user_info, setuser_info] = useState(
-    JSON.parse(localStorage.getItem("user"))
-  );
+  // const [user_info, setuser_info] = useState(
+  //   JSON.parse(localStorage.getItem("user"))
+  // );
   // const [user_info,setuser_info]=useState('')
   // console.log(user_info)
 

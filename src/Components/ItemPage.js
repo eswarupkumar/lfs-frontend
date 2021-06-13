@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 // import "../css/itempage.css";
 import "../css/itempage.css";
-import sant from "../img/Santorini.jpg";
+// import sant from "../img/Santorini.jpg";
 import lodash from "lodash";
 import { useHistory } from "react-router-dom";
 import Navbar from "./Navbar";
 // import { Carousel } from "react-bootstrap";
-import { LOGGED_IN, setConstraint } from "../constraints";
+import { setConstraint } from "../constraints";
 import { useToasts } from 'react-toast-notifications';
 import Axios from "axios";
 import {
@@ -16,8 +16,7 @@ import {
   Container,
   Card,
   ListGroup,
-  ListGroupItem,
-  Col,
+  ListGroupItem
 } from "react-bootstrap";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
@@ -30,7 +29,7 @@ function ItemPage(props) {
   const [Createdby, setCreatedby] = useState("");
   const [show, setShow] = useState(false);
   const [showDelete, setShowDelete] = useState(false);
-  const [index, setIndex] = useState(0);
+  // const [index, setIndex] = useState(0);
   const [authenticationPage, setauthenication] = useState("");
   // const [showNumber, setShowNumber] = useState(false);
   const [validateUser, setvalidateUser] = useState(false);
@@ -60,17 +59,17 @@ function ItemPage(props) {
   const handleCloseQuestion = () => setQuestion(false);
   const handleShowQuestion = () => setQuestion(true);
   const handleShow = () => setShow(true);
-  const handleSelect = (selectedIndex, e) => {
-    setIndex(selectedIndex);
-  };
+  // const handleSelect = (selectedIndex, e) => {
+  //   setIndex(selectedIndex);
+  // };
   const history = useHistory();
   setConstraint(true);
   // console.log(props.location.search.substring(1).split("=")[1].split("&")[0]);
   // console.log(props.location.search.substring(1).split("=")[2].split("/")[0]);
-  const item_type = props.location.search
-    .substring(1)
-    .split("=")[2]
-    .split("/")[0];
+  // const item_type = props.location.search
+  //   .substring(1)
+  //   .split("=")[2]
+  //   .split("/")[0];
   const item_id = props.location.search
     .substring(1)
     .split("=")[1]
@@ -444,7 +443,7 @@ function ItemPage(props) {
                 <div style={{ border: "2px solid black" }}>
                   <img
                     src={`https://lfs-backend.herokuapp.com/${i.img}`}
-                    alt="item image"
+                    alt="item"
                   />
                 </div>
               );

@@ -4,7 +4,7 @@ import lodash from "lodash";
 import "bootstrap/dist/css/bootstrap.css";
 import { useToasts } from "react-toast-notifications";
 import { Button, Modal, Form } from "react-bootstrap";
-function Lost_item() {
+function LostItem() {
   const [show, setShow] = useState(false);
   const { addToast } = useToasts();
   const token = window.localStorage.getItem("token");
@@ -14,7 +14,7 @@ function Lost_item() {
   const [itemquestion, setitemquestion] = useState("");
   const [itemimage, setitemimage] = useState([]);
   const [type, settype] = useState("");
-  const [alertshow, setalertShow] = useState(true);
+  // const [alertshow, setalertShow] = useState(true);
 
   const handleShow = () => setShow(true);
   const handleClose = () => {
@@ -174,4 +174,4 @@ function Lost_item() {
   );
 }
 
-export default Lost_item;
+export default LostItem;
