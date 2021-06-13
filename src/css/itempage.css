@@ -47,3 +47,12 @@
     margin: 10px 10px;
     display: inline-block;
 }
+
+@media(max-width:480px){
+    .carousel{
+        width: 100%;
+    }
+    .itempage{
+        flex-wrap: wrap;
+    }
+}
