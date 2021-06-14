@@ -442,7 +442,7 @@ function ItemPage(props) {
               return (
                 <div style={{ border: "2px solid black" }}>
                   <img
-                    src={`https://lfs-backend.herokuapp.com/${i.img}`}
+                    src={`https://lost-and-found-system.s3.amazonaws.com/${i.img}`}
                     alt="item"
                   />
                 </div>

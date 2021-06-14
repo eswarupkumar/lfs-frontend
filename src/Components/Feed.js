@@ -99,7 +99,7 @@ export default function Feed() {
             if (item.createdBy === user_info._id) {
               user = true;
             }
-            console.log(item)
+            // console.log(item)
             // console.log("Lost item "+user+item.name)
             // console.log(`http://localhost:5000/${item.itemPictures[0].img}`)
             items.push(
