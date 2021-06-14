@@ -99,6 +99,7 @@ export default function Feed() {
             if (item.createdBy === user_info._id) {
               user = true;
             }
+            console.log(item)
             // console.log("Lost item "+user+item.name)
             // console.log(`http://localhost:5000/${item.itemPictures[0].img}`)
             items.push(
@@ -111,7 +112,7 @@ export default function Feed() {
                   <Card bsPrefix="item-card">
                     <Card.Img
                       variant="top"
-                      src={`https://lfs-backend.herokuapp.com/${item.itemPictures[0].img}`}
+                      src={`https://lost-and-found-system.s3.amazonaws.com/${item.itemPictures[0].img}`}
                     />
                     <Card.Body bsPrefix="card-body">
                       <Card.Title
@@ -178,7 +179,7 @@ export default function Feed() {
                   <Card bsPrefix="item-card" key={item.name}>
                     <Card.Img
                       variant="top"
-                      src={`https://lfs-backend.herokuapp.com/${item.itemPictures[0].img}`}
+                      src={`https://lost-and-found-system.s3.amazonaws.com/${item.itemPictures[0].img}`}
                     />
                     <Card.Body bsPrefix="card-body">
                       <Card.Title
