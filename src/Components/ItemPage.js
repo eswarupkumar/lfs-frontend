@@ -50,8 +50,8 @@ function ItemPage(props) {
   const handleShowDelete = () => setShowDelete(true);
   const handleCloseprompt = () => setvalidateUser(false);
   const handleShowprompt = (id, answer) => {
-    console.log("Selected message ID is :", id);
-    console.log("Answer is :", answer);
+    // console.log("Selected message ID is :", id);
+    // console.log("Answer is :", answer);
     setmessageId(id);
     setResponse(answer);
     setvalidateUser(true);
@@ -95,12 +95,12 @@ function ItemPage(props) {
         const data = response.data.Item[0];
         const answers = response.data.Answers;
         // console.log(answers);
-        console.log(data);
+        // console.log(data);
         answers.forEach((ans) => {
           if (JSON.parse(localStorage.getItem("user"))._id === ans.givenBy) {
-            console.log("Present");
+            // console.log("Present");
             setalreadyAnswered(true);
-            console.log(alreadyAnswered);
+            // console.log(alreadyAnswered);
           }
           // console.log(
           //   "User ID is :",
@@ -118,7 +118,7 @@ function ItemPage(props) {
         data.itemPictures.map((img) => {
           setitemimage((itemImg) => [...itemImg, img]);
         });
-        console.log(itemimage);
+        // console.log(itemimage);
         // console.log(itemquestion)
         let created_date = new Date(data.createdAt);
         let createdAt =
@@ -184,7 +184,7 @@ function ItemPage(props) {
         );
         setItemname(temp);
         // return data;
-        console.log(answers);
+        // console.log(answers);
         answers.map((e) => {
           let created_date = new Date(e.createdAt);
           e.createdAt =
@@ -293,7 +293,7 @@ function ItemPage(props) {
       data: { response: response },
     })
       .then((res) => {
-        console.log(res);
+        // console.log(res);
         addToast("Response saved 👍", {
           appearance: "success",
         });
@@ -307,14 +307,14 @@ function ItemPage(props) {
     handleCloseprompt(true);
   };
   const delete_item = () => {
-    console.log("deleted");
+    // console.log("deleted");
     Axios({
       url: "https://lfs-backend.herokuapp.com/deleteitem",
       method: "POST",
       data: { item_id },
     })
       .then((response) => {
-        console.log(response);
+        // console.log(response);
         handleCloseDelete();
         addToast("Item kicked to 🗑️ successfully!", {
           appearance: "success",
@@ -342,9 +342,9 @@ function ItemPage(props) {
       })
     }
     else{
-      console.log("Old one")
+      // console.log("Old one")
       itemimage.map((image)=>{
-        console.log(image)
+        // console.log(image)
         info.append('olditemPictures',image.img)
       })
     }
@@ -354,7 +354,7 @@ function ItemPage(props) {
       data:info
     })
       .then((res) => {
-        console.log(res);
+        // console.log(res);
         addToast("Item edited✏️ successfully!", {
           appearance: "success",
         });
@@ -402,7 +402,7 @@ function ItemPage(props) {
       },
     })
       .then((res) => {
-        console.log(res);
+        // console.log(res);
         handleCloseQuestion();
         addToast("Response saved ✔️", {
           appearance: "success",

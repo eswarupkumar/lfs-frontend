@@ -21,7 +21,7 @@ function Found_item() {
       description: description,
       itemPictures: itemimage,
     };
-    console.log(payload);
+    // console.log(payload);
     axios({
       url: "http://localhost:5000/founditem",
       method: "POST",
@@ -33,7 +33,9 @@ function Found_item() {
       credentials: "include",
       // url: "http://localhost:5000/login"
     })
-      .then((response) => console.log(response))
+      .then((response) => {
+        // console.log(response)
+      })
       .catch((err) => console.log(err));
 
     setShowF(false);

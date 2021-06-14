@@ -69,7 +69,7 @@ export default function Home() {
       data: data,
     })
       .then((res) => {
-        console.log(res);
+        // console.log(res);
       })
       .catch((err) => {
         console.log(err);

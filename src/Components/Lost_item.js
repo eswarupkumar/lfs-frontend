@@ -30,7 +30,7 @@ function LostItem() {
     // };
     // console.log(payload)
     if (itemname && description && type) {
-      console.log("Item image : ", itemimage);
+      // console.log("Item image : ", itemimage);
       const info = new FormData();
       info.append("name", itemname);
       info.append("description", description);
@@ -56,7 +56,9 @@ function LostItem() {
         },
         // url: "http://localhost:5000/login"
       })
-        .then((response) => console.log(response))
+        .then((response) => {
+          // console.log(response)
+        })
         .then(() => {
           // eslint-disable-next-line no-lone-blocks
           addToast("Wohoo 🤩! Item listed successfully.", {
@@ -67,7 +69,7 @@ function LostItem() {
           settype("");
           setitemquestion("");
           setitemimage([]);
-          console.log("Executed");
+          // console.log("Executed");
           setShow(false);
         })
         .catch((err) => {
@@ -152,7 +154,7 @@ function LostItem() {
                   // console.log(e.target.files)
                   let { files } = e.target;
                   lodash.forEach(files, (file) => {
-                    console.log(file);
+                    // console.log(file);
                     setitemimage((item) => [...item, file]);
                   });
                 }}

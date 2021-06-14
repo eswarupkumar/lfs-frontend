@@ -41,7 +41,7 @@ function Navbar() {
       .then(localStorage.clear())
       .catch((error) => {
         console.log(error);
-        console.log("Error occured");
+        // console.log("Error occured");
       });
   };
   return (

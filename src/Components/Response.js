@@ -12,13 +12,13 @@ function Response() {
     setShowNumber(false);
   };
   const handleShowNumber = (response) => {
-    console.log("Inside :", response);
+    // console.log("Inside :", response);
     Axios({
       url: `https://lfs-backend.herokuapp.com/getnumber/${response.belongsTo}`,
       method: "GET",
     })
       .then((response) => {
-        console.log(response.data.Number);
+        // console.log(response.data.Number);
         setPhoneNumber(response.data.Number);
       })
       .finally(() => {
@@ -51,7 +51,7 @@ function Response() {
             created_date.getHours() +
             ":" +
             created_date.getMinutes();
-          console.log(response);
+          // console.log(response);
           temp.push(
             <div className="responese-card">
               <h5>

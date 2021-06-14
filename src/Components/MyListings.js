@@ -70,7 +70,7 @@ export default function Feed() {
         // console.log(response.data.postitems);
         // console.log(response);
         let data = response.data.item;
-        console.log(response.data);
+        // console.log(response.data);
         let items = [];
         let Found_items = [];
         data.reverse().map((item) => {

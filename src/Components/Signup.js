@@ -31,8 +31,8 @@ export default class Signup extends Component {
     this.setState({
       info: "",
     });
-    console.log("Inside Submit");
-    console.log(this.state);
+    // console.log("Inside Submit");
+    // console.log(this.state);
     const payload = {
       firstname: document.getElementById("firstname").value,
       lastname: document.getElementById("lastname").value,
@@ -48,7 +48,7 @@ export default class Signup extends Component {
       data: payload,
     })
       .then((response) => {
-        console.log("Response is :", response);
+        // console.log("Response is :", response);
         this.setState({
           info: response.data,
         });

@@ -236,7 +236,7 @@ export default function Feed() {
       .catch((err) => {
         console.log("Error :", err);
       });
-  },);
+  },[]);
 
   return (
     <div>
