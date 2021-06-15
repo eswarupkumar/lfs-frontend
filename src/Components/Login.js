@@ -3,15 +3,18 @@ import "../css/newSignup.css";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 import Navbar from "../Components/Navbar";
+import { Spinner } from "react-bootstrap";
 // import developer from "../img/developer_outline I.svg";
 
 // export default let [user,setUser]=useState(false)
 
 function Login() {
+  const [loading, setloading] = useState(false);
   let [info, setinfo] = useState("");
   const [user_info, setuser_info] = useState("");
   const history = useHistory();
   function login() {
+    setloading(true);
     // console.log(setinfo)
     var payload = {
       email: document.getElementById("email").value,
@@ -39,6 +42,7 @@ function Login() {
         // console.log("Response :",response)
       })
       .catch((error) => {
+        setloading(false);
         console.log(error);
         console.log("Error occured");
       });
@@ -97,7 +101,20 @@ function Login() {
           />
           {/* <input type="submit" placeholder="Submit"></input> */}
           <button type="button" className="submit" onClick={login}>
-            Submit
+            {loading ? (
+              <>
+                <Spinner
+                  as="span"
+                  animation="border"
+                  size="sm"
+                  role="status"
+                  aria-hidden="true"
+                />
+                <span className="sr-only">Loading...</span>
+              </>
+            ) : (
+              <>Submit</>
+            )}
           </button>
           <p style={{ color: "white" }}>
             Don't have an account?{" "}

@@ -3,12 +3,12 @@ import axios from "axios";
 import lodash from "lodash";
 import "bootstrap/dist/css/bootstrap.css";
 import { useToasts } from "react-toast-notifications";
-import { Button, Modal, Form } from "react-bootstrap";
+import { Button, Modal, Form, Spinner } from "react-bootstrap";
 function LostItem() {
   const [show, setShow] = useState(false);
   const { addToast } = useToasts();
   const token = window.localStorage.getItem("token");
-
+  const [loading, setloading] = useState(false);
   const [itemname, setitemname] = useState("");
   const [description, setdescription] = useState("");
   const [itemquestion, setitemquestion] = useState("");
@@ -18,6 +18,7 @@ function LostItem() {
 
   const handleShow = () => setShow(true);
   const handleClose = () => {
+    setloading(true);
     // const form = new FormData();
     // form.append("name", itemname);
     // form.append("description", description);
@@ -70,9 +71,11 @@ function LostItem() {
           setitemquestion("");
           setitemimage([]);
           // console.log("Executed");
+          setloading(false);
           setShow(false);
         })
         .catch((err) => {
+          setloading(false);
           console.log(err);
           addToast("Oops 😞! Check internet connection or try again later.", {
             appearance: "error",
@@ -168,7 +171,20 @@ function LostItem() {
             Close
           </Button>
           <Button variant="primary" onClick={handleClose}>
-            Submit
+            {loading ? (
+              <>
+                <Spinner
+                  as="span"
+                  animation="border"
+                  size="sm"
+                  role="status"
+                  aria-hidden="true"
+                />
+                <span className="sr-only">Loading...</span>
+              </>
+            ) : (
+              <>Submit</>
+            )}
           </Button>
         </Modal.Footer>
       </Modal>
