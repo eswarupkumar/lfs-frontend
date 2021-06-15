@@ -181,6 +181,11 @@ p{
     /* display: none; */
     width: 350px;
     height: 350px;
+  }  
+}
+
+@media (max-width:800px){
+  .info{
+    margin: 10px 0px;
   }
-  
 }

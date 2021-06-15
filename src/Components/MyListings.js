@@ -101,7 +101,7 @@ export default function Feed() {
                 <Card bsPrefix="item-card" style={{maxHeight:"465px"}} >
                   <Card.Img
                     variant="top"
-                    src={`http://localhost:5000/${item.itemPictures[0].img}`}
+                    src={`https://lost-and-found-system.s3.amazonaws.com/${item.itemPictures[0].img}`}
                   />
                   <Card.Body bsPrefix="card-body" >
                     <Card.Title>Item :{item.name}</Card.Title>

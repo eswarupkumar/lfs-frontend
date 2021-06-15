@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useRef } from "react";
 import Navbar from "./Navbar";
 import "../css/landing.css";
 import Axios from "axios";
@@ -29,6 +29,7 @@ export default function Home() {
   //     console.log("Not logged in");
   //   }
   // };
+  const ref=useRef()
   AOS.init();
 
   // You can also pass an optional settings object
@@ -87,6 +88,9 @@ export default function Home() {
             <div className="title">
               <h1 id="title-h">Lost and Found</h1>
               <p>Lost it. List it. Find it.</p>
+            <Button variant="custom" size="lg" onClick={()=>{ref.current.scrollIntoView({ behavior: 'smooth' })}}>
+              Get Started
+            </Button>
             </div>
           </div>
           <div className="part-2">
@@ -126,16 +130,16 @@ export default function Home() {
               of the college students. A problem will still remain the same
               until someone builds a solution to it.
             </p>
-            <Button variant="custom" size="lg">
+            {/* <Button variant="custom" size="lg" onClick={()=>{ref.current.scrollIntoView({ behavior: 'smooth' })}}>
               Get Started
-            </Button>
+            </Button> */}
           </Row>
         </Container>
       </div>
       <div data-aos="fade-left">
         <Container fluid>
           <div className="total-about">
-            <div className="about-heading">
+            <div ref={ref} className="about-heading">
               <h6 className="section-heading">How it works ?</h6>
             </div>
             <div className="about-card">
@@ -268,7 +272,7 @@ export default function Home() {
               <h6>swarupwho.codes</h6>
             </a>
           </div>
-          <h4>Copyright © 2021 E Swarup Kumar. All rights reserved.</h4>
+          <h5>Copyright © 2021 E Swarup Kumar. All rights reserved.</h5>
         </div>
       </Container>
       {/* <div className="About">
