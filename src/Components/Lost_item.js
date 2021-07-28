@@ -88,6 +88,12 @@ function LostItem() {
       });
     }
   };
+  const temporaryShut=()=>{
+    addToast("New item listing has been disabled temporarily.", {
+      appearance: "warning",
+    });
+    setShow(false);
+  }
   return (
     <div>
       <Button variant="primary" onClick={handleShow}>
@@ -170,7 +176,8 @@ function LostItem() {
           <Button variant="secondary" onClick={() => setShow(false)}>
             Close
           </Button>
-          <Button variant="primary" onClick={handleClose}>
+          {/* onClick={handleClose} */}
+          <Button variant="primary" onClick={temporaryShut}>
             {loading ? (
               <>
                 <Spinner

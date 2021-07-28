@@ -1,4 +1,4 @@
-import React, { useState,useRef } from "react";
+import React, { useState, useRef } from "react";
 import Navbar from "./Navbar";
 import "../css/landing.css";
 import Axios from "axios";
@@ -15,6 +15,7 @@ import github from "../img/github.svg";
 import linkedin from "../img/linkedin.svg";
 import instagram from "../img/instagram.svg";
 import mail from "../img/mail.svg";
+import feature from "../img/feature.svg";
 
 // import image from "../img/earth.svg";
 import { Container, Row, Button, Form } from "react-bootstrap";
@@ -29,7 +30,7 @@ export default function Home() {
   //     console.log("Not logged in");
   //   }
   // };
-  const ref=useRef()
+  const ref = useRef();
   AOS.init();
 
   // You can also pass an optional settings object
@@ -88,9 +89,15 @@ export default function Home() {
             <div className="title">
               <h1 id="title-h">Lost and Found</h1>
               <p>Lost it. List it. Find it.</p>
-            <Button variant="custom" size="lg" onClick={()=>{ref.current.scrollIntoView({ behavior: 'smooth' })}}>
-              Get Started
-            </Button>
+              <Button
+                variant="custom"
+                size="lg"
+                onClick={() => {
+                  ref.current.scrollIntoView({ behavior: "smooth" });
+                }}
+              >
+                Get Started
+              </Button>
             </div>
           </div>
           <div className="part-2">
@@ -115,11 +122,7 @@ export default function Home() {
       <div data-aos="fade-right">
         <Container fluid className="total-inspiration">
           <div>
-            <img
-              className="developer-img"
-              src={developer}
-              alt=""
-            />
+            <img className="developer-img" src={developer} alt="" />
           </div>
           <Row className="inspiration">
             <h6 className="section-heading">My Project Inspiration</h6>
@@ -136,6 +139,24 @@ export default function Home() {
           </Row>
         </Container>
       </div>
+      {/* <div data-aos="fade-left">
+        <Container fluid>
+          <div className="feature">
+            <div>
+              <h6 className="section-heading">What makes this Unique?</h6>
+              <div>
+                <p>
+                  Personal informartion are is something which should be taken
+                  utmost care and should be shared only to the right user.
+                </p>
+              </div>
+            </div>
+            <div>
+              <img className="feature-img" src={feature} alt="" />
+            </div>
+          </div>
+        </Container>
+      </div> */}
       <div data-aos="fade-left">
         <Container fluid>
           <div className="total-about">
@@ -242,22 +263,32 @@ export default function Home() {
       <Container fluid>
         <div className="footer">
           <div className="social-icon">
-            <a href="https://github.com/eswarupkumar" target="_blank" rel="noopener noreferrer">
+            <a
+              href="https://github.com/eswarupkumar"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <img src={github} className="icon github" alt="" />
             </a>
             <a
               href="https://www.linkedin.com/in/e-swarup-kumar/"
-              target="_blank" rel="noopener noreferrer"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               <img src={linkedin} className="icon" alt="" />
             </a>
             <a
               href="https://www.instagram.com/_swarup._.kumar_/"
-              target="_blank" rel="noopener noreferrer"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               <img src={instagram} className="icon" alt="" />
             </a>
-            <a href="mailto:eswarupkumar1111@silicon.ac.in" target="_blank" rel="noopener noreferrer">
+            <a
+              href="mailto:eswarupkumar1111@silicon.ac.in"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <img src={mail} className="icon" alt="" />
             </a>
           </div>
@@ -268,11 +299,17 @@ export default function Home() {
               <span className="symbol">/&#62;</span>
             </h4>
             <h6>Full Stack Developer</h6>
-            <a href="https://www.swarupwho.codes" target="_blank" rel="noopener noreferrer">
+            <a
+              href="https://www.swarupwho.codes"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <h6>swarupwho.codes</h6>
             </a>
           </div>
-          <h5>Copyright © 2021 E Swarup Kumar. All rights reserved.</h5>
+          <h5 style={{ textAlign: "center" }}>
+            Copyright © 2021 E Swarup Kumar. All rights reserved.
+          </h5>
         </div>
       </Container>
       {/* <div className="About">

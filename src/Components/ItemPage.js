@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 // import "../css/itempage.css";
 import "../css/itempage.css";
-// import sant from "../img/Santorini.jpg";
+import sant from "../img/Santorini.jpg";
 import lodash from "lodash";
 import { useHistory } from "react-router-dom";
 import Navbar from "./Navbar";
 // import { Carousel } from "react-bootstrap";
-import { setConstraint } from "../constraints";
-import { useToasts } from 'react-toast-notifications';
+import { LOGGED_IN, setConstraint } from "../constraints";
+import { useToasts } from "react-toast-notifications";
 import Axios from "axios";
 import {
   Button,
@@ -16,20 +16,22 @@ import {
   Container,
   Card,
   ListGroup,
-  ListGroupItem
+  ListGroupItem,
+  Col,
 } from "react-bootstrap";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
 // import Carousel from "react-bootstrap/Carousel";
 // import 'bootstrap/dist/css/bootstrap.min.css';
 function ItemPage(props) {
-  const {addToast} =useToasts();
+  const { addToast } = useToasts();
   const [Itemname, setItemname] = useState("");
+  const [ActivationRequest,setActivationRequest]=useState(false)
   // const [PhoneNumber, setPhoneNumber] = useState();
   const [Createdby, setCreatedby] = useState("");
   const [show, setShow] = useState(false);
   const [showDelete, setShowDelete] = useState(false);
-  // const [index, setIndex] = useState(0);
+  const [index, setIndex] = useState(0);
   const [authenticationPage, setauthenication] = useState("");
   // const [showNumber, setShowNumber] = useState(false);
   const [validateUser, setvalidateUser] = useState(false);
@@ -50,26 +52,49 @@ function ItemPage(props) {
   const handleShowDelete = () => setShowDelete(true);
   const handleCloseprompt = () => setvalidateUser(false);
   const handleShowprompt = (id, answer) => {
-    // console.log("Selected message ID is :", id);
-    // console.log("Answer is :", answer);
+    console.log("Selected message ID is :", id);
+    console.log("Answer is :", answer);
     setmessageId(id);
     setResponse(answer);
     setvalidateUser(true);
   };
+  const handleCloseActivation=()=>{
+    setActivationRequest(false)
+  }
+  const submitActivate=()=>{
+    // console.log("dd")
+    Axios({
+      method:"POST",
+      url:`https://lfs-backend.herokuapp.com/activateItem/${item_id}`
+    })
+    .then((res)=>{
+      console.log("Activated")
+      addToast("Item Activated 👍", {
+        appearance: "success",
+      });
+      setTimeout(() => {
+        window.location.reload();
+      }, 2000);
+    })
+    .catch((err)=>{
+      console.log(err)
+    })
+    setActivationRequest(false)
+  }
   const handleCloseQuestion = () => setQuestion(false);
   const handleShowQuestion = () => setQuestion(true);
   const handleShow = () => setShow(true);
-  // const handleSelect = (selectedIndex, e) => {
-  //   setIndex(selectedIndex);
-  // };
+  const handleSelect = (selectedIndex, e) => {
+    setIndex(selectedIndex);
+  };
   const history = useHistory();
   setConstraint(true);
   // console.log(props.location.search.substring(1).split("=")[1].split("&")[0]);
   // console.log(props.location.search.substring(1).split("=")[2].split("/")[0]);
-  // const item_type = props.location.search
-  //   .substring(1)
-  //   .split("=")[2]
-  //   .split("/")[0];
+  const item_type = props.location.search
+    .substring(1)
+    .split("=")[2]
+    .split("/")[0];
   const item_id = props.location.search
     .substring(1)
     .split("=")[1]
@@ -87,7 +112,9 @@ function ItemPage(props) {
   useEffect(() => {
     const { location } = props;
     Axios({
-      url: `https://lfs-backend.herokuapp.com/item/${location.search.substring(1).split("=")[1].split("&")[0]}`,
+      url: `https://lfs-backend.herokuapp.com/item/${
+        item_id
+      }`,
       method: "GET",
     })
       .then((response) => {
@@ -95,12 +122,12 @@ function ItemPage(props) {
         const data = response.data.Item[0];
         const answers = response.data.Answers;
         // console.log(answers);
-        // console.log(data);
+        console.log(data);
         answers.forEach((ans) => {
           if (JSON.parse(localStorage.getItem("user"))._id === ans.givenBy) {
-            // console.log("Present");
+            console.log("Present");
             setalreadyAnswered(true);
-            // console.log(alreadyAnswered);
+            console.log(alreadyAnswered);
           }
           // console.log(
           //   "User ID is :",
@@ -108,7 +135,7 @@ function ItemPage(props) {
           // );
           // console.log("Given by :", ans.givenBy);
         });
-        setitemid(data._id)
+        setitemid(data._id);
         setitemname(data.name);
         setdescription(data.description);
         setitemquestion(data.question);
@@ -118,7 +145,7 @@ function ItemPage(props) {
         data.itemPictures.map((img) => {
           setitemimage((itemImg) => [...itemImg, img]);
         });
-        // console.log(itemimage);
+        console.log(itemimage);
         // console.log(itemquestion)
         let created_date = new Date(data.createdAt);
         let createdAt =
@@ -131,7 +158,7 @@ function ItemPage(props) {
           created_date.getHours() +
           ":" +
           created_date.getMinutes();
-
+        console.log(data);
         temp.push(
           <div className="itemDescription">
             <h3 className="attributes">
@@ -147,6 +174,10 @@ function ItemPage(props) {
               Item type : <span className="details">{data.type}</span>{" "}
             </h3>
             <hr></hr>
+            <h3 className="attributes">
+              Status :{data.status?(<><span className="details"> Active</span></>):(<><span className="details">Inactive</span></>)}{" "}
+            </h3>
+            <hr></hr>
             <h6 className="attributes">
               Created at : <span className="details">{createdAt}</span>{" "}
             </h6>
@@ -158,6 +189,15 @@ function ItemPage(props) {
                 <Button variant="primary" onClick={handleShow}>
                   Edit item
                 </Button>
+                {data.status ? (
+                  <></>
+                ) : (
+                  <>
+                    <Button variant="primary" onClick={()=>setActivationRequest(true)}>
+                      Reactivate Item
+                    </Button>
+                  </>
+                )}
               </div>
             ) : (
               <div>
@@ -184,7 +224,7 @@ function ItemPage(props) {
         );
         setItemname(temp);
         // return data;
-        // console.log(answers);
+        console.log(answers);
         answers.map((e) => {
           let created_date = new Date(e.createdAt);
           e.createdAt =
@@ -213,12 +253,10 @@ function ItemPage(props) {
                   {answers.length === 0 ? (
                     <h3>No Answers Yet.</h3>
                   ) : (
-                    <div style={{display:"flex",flexWrap:"wrap"}}>
+                    <div style={{ display: "flex", flexWrap: "wrap" }}>
                       {answers.map((answer) => (
                         <>
-                          <div className="responses"
-                            
-                          >
+                          <div className="responses">
                             <Card border="primary" style={{ width: "18rem" }}>
                               <Card.Body>
                                 <Card.Title>
@@ -237,28 +275,30 @@ function ItemPage(props) {
                                 <Card.Link href="#">Yes</Card.Link>
                               </Card.Body> */}
                               <Card.Body>
-                              {answer.response === "Moderation" ? (
-                                <div className="ed-button">
-                                  <Button
-                                    variant="danger"
-                                    onClick={() =>
-                                      handleShowprompt(answer._id, "No")
-                                    }
-                                  >
-                                    No
-                                  </Button>
-                                  <Button
-                                    variant="primary"
-                                    onClick={() =>
-                                      handleShowprompt(answer._id, "Yes")
-                                    }
-                                  >
-                                    Yes
-                                  </Button>
-                                </div>
-                              ) : (
-                                <p>Already Submitted as "{answer.response}"</p>
-                              )}
+                                {answer.response === "Moderation" ? (
+                                  <div className="ed-button">
+                                    <Button
+                                      variant="danger"
+                                      onClick={() =>
+                                        handleShowprompt(answer._id, "No")
+                                      }
+                                    >
+                                      No
+                                    </Button>
+                                    <Button
+                                      variant="primary"
+                                      onClick={() =>
+                                        handleShowprompt(answer._id, "Yes")
+                                      }
+                                    >
+                                      Yes
+                                    </Button>
+                                  </div>
+                                ) : (
+                                  <p>
+                                    Already Submitted as "{answer.response}"
+                                  </p>
+                                )}
                               </Card.Body>
                             </Card>
                           </div>
@@ -293,7 +333,7 @@ function ItemPage(props) {
       data: { response: response },
     })
       .then((res) => {
-        // console.log(res);
+        console.log(res);
         addToast("Response saved 👍", {
           appearance: "success",
         });
@@ -307,14 +347,14 @@ function ItemPage(props) {
     handleCloseprompt(true);
   };
   const delete_item = () => {
-    // console.log("deleted");
+    console.log("deleted");
     Axios({
       url: "https://lfs-backend.herokuapp.com/deleteitem",
       method: "POST",
       data: { item_id },
     })
       .then((response) => {
-        // console.log(response);
+        console.log(response);
         handleCloseDelete();
         addToast("Item kicked to 🗑️ successfully!", {
           appearance: "success",
@@ -328,33 +368,32 @@ function ItemPage(props) {
       });
   };
   const handleEdit = () => {
-    const info=new FormData()
-    info.append('name',itemname)
-    info.append('description',description)
-    info.append('question',itemquestion)
-    info.append('type',type)
-    info.append("id",item_id)
-    info.append("createdBy",Createdby)
+    const info = new FormData();
+    info.append("name", itemname);
+    info.append("description", description);
+    info.append("question", itemquestion);
+    info.append("type", type);
+    info.append("id", item_id);
+    info.append("createdBy", Createdby);
     // console.log(newitemimage.length)
-    if(newitemimage.length>0){
-      newitemimage.map((itemImage)=>{
-        info.append('itemPictures',itemImage,itemImage.name)
-      })
-    }
-    else{
-      // console.log("Old one")
-      itemimage.map((image)=>{
-        // console.log(image)
-        info.append('olditemPictures',image.img)
-      })
+    if (newitemimage.length > 0) {
+      newitemimage.map((itemImage) => {
+        info.append("itemPictures", itemImage, itemImage.name);
+      });
+    } else {
+      console.log("Old one");
+      itemimage.map((image) => {
+        console.log(image);
+        info.append("olditemPictures", image.img);
+      });
     }
     Axios({
       url: "https://lfs-backend.herokuapp.com/edititem",
       method: "POST",
-      data:info
+      data: info,
     })
       .then((res) => {
-        // console.log(res);
+        console.log(res);
         addToast("Item edited✏️ successfully!", {
           appearance: "success",
         });
@@ -402,7 +441,7 @@ function ItemPage(props) {
       },
     })
       .then((res) => {
-        // console.log(res);
+        console.log(res);
         handleCloseQuestion();
         addToast("Response saved ✔️", {
           appearance: "success",
@@ -453,6 +492,21 @@ function ItemPage(props) {
         </div>
         <div>{authenticationPage}</div>
       </Container>
+
+      <Modal show={ActivationRequest} onHide={handleCloseActivation} backdrop="static">
+        <Modal.Body>
+          <p>Are you sure ? </p>
+        </Modal.Body>
+
+        <Modal.Footer>
+          <Button variant="primary" onClick={handleCloseActivation}>
+            No
+          </Button>
+          <Button variant="danger" onClick={submitActivate}>
+            Yes
+          </Button>
+        </Modal.Footer>
+      </Modal>
 
       <Modal show={showDelete} onHide={handleCloseDelete} backdrop="static">
         <Modal.Body>
@@ -576,20 +630,20 @@ function ItemPage(props) {
                 </Form.Control>
               </Form.Group>
               <Form.Group>
-              <Form.File
-                type="file"
-                id="formimage"
-                label="Image input"
-                onChange={(e) => {
-                  // console.log(e.target.files)
-                  let {files}=e.target
-                  lodash.forEach(files,file=>{
-                    // console.log(file)
-                    setnewitemimage(item=>[...item,file])
-                  })
-                }}
-                multiple
-              />
+                <Form.File
+                  type="file"
+                  id="formimage"
+                  label="Image input"
+                  onChange={(e) => {
+                    // console.log(e.target.files)
+                    let { files } = e.target;
+                    lodash.forEach(files, (file) => {
+                      // console.log(file)
+                      setnewitemimage((item) => [...item, file]);
+                    });
+                  }}
+                  multiple
+                />
               </Form.Group>
             </Form>
           </Modal.Body>

@@ -4,7 +4,7 @@ import Navbar from "../Components/Navbar";
 import "../css/item_card.css";
 import '../css/mylisting.css'
 import Axios from "axios";
-import { Card, Col, Container, Row } from "react-bootstrap";
+import { Card, Col, Container, Row, Badge } from "react-bootstrap";
 
 export default function Feed() {
   // console.log("Status :", LOGGED_IN)
@@ -104,6 +104,20 @@ export default function Feed() {
                     src={`https://lost-and-found-system.s3.amazonaws.com/${item.itemPictures[0].img}`}
                   />
                   <Card.Body bsPrefix="card-body" >
+                  {item.status ? (
+                      <>
+                        {" "}
+                        <Badge pill variant="success">
+                          Active
+                        </Badge>
+                      </>
+                    ) : (
+                      <>
+                        <Badge pill variant="secondary">
+                          Inactive
+                        </Badge>
+                      </>
+                    )}
                     <Card.Title>Item :{item.name}</Card.Title>
                     {/* <Card.Text>Type :{item.type}</Card.Text> */}
                     {item.description ? (
