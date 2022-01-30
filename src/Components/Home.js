@@ -260,58 +260,57 @@ export default function Home() {
           </div>
         </Container>
       </div>
-      <Container fluid>
-        <div className="footer">
-          <div className="social-icon">
-            <a
-              href="https://github.com/eswarupkumar"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <img src={github} className="icon github" alt="" />
-            </a>
-            <a
-              href="https://www.linkedin.com/in/e-swarup-kumar/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <img src={linkedin} className="icon" alt="" />
-            </a>
-            <a
-              href="https://www.instagram.com/_swarup._.kumar_/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <img src={instagram} className="icon" alt="" />
-            </a>
-            <a
-              href="mailto:eswarupkumar1111@silicon.ac.in"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <img src={mail} className="icon" alt="" />
-            </a>
-          </div>
-          <div className="personal-info">
-            <p>Created with ❤️ using MERN by </p>
-            <h4>
-              <span className="symbol">&#60;</span>E Swarup Kumar
-              <span className="symbol">/&#62;</span>
-            </h4>
-            <h6>Full Stack Developer</h6>
-            <a
-              href="https://www.swarupwho.codes"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <h6>swarupwho.codes</h6>
-            </a>
-          </div>
-          <h5 style={{ textAlign: "center" }}>
-            Copyright © 2021 E Swarup Kumar. All rights reserved.
-          </h5>
+
+      <div className="footer">
+        <div className="social-icon">
+          <a
+            href="https://github.com/eswarupkumar"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src={github} className="icon github" alt="" />
+          </a>
+          <a
+            href="https://www.linkedin.com/in/e-swarup-kumar/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src={linkedin} className="icon" alt="" />
+          </a>
+          {/* <a
+            href="https://www.instagram.com/_swarup._.kumar_/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src={instagram} className="icon" alt="" />
+          </a> */}
+          <a
+            href="mailto:eswarupkumar1111@silicon.ac.in"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src={mail} className="icon" alt="" />
+          </a>
         </div>
-      </Container>
+        <div className="personal-info">
+          <p>Created with ❤️ using MERN by </p>
+          <h4>
+            <span className="symbol">&#60;</span>E Swarup Kumar
+            <span className="symbol">/&#62;</span>
+          </h4>
+          <h6>Full Stack Developer</h6>
+          {/* <a
+            href="https://www.swarupwho.codes"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <h6>swarupwho.codes</h6>
+          </a> */}
+        </div>
+        <h5 style={{ textAlign: "center" }}>
+          Copyright © 2022 E Swarup Kumar. All rights reserved.
+        </h5>
+      </div>
       {/* <div className="About">
         <div>
           <h1>About the project</h1>
