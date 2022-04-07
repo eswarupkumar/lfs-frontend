@@ -88,7 +88,7 @@ export default function Home() {
           <div className="part-1">
             <div className="title">
               <h1 id="title-h">Lost and Found</h1>
-              <p>Lost it. List it. Find it.</p>
+              <p>Lost it😕. List it📃. Find it🤩.</p>
               <Button
                 variant="custom"
                 size="lg"
@@ -100,6 +100,7 @@ export default function Home() {
               </Button>
             </div>
           </div>
+
           <div className="part-2">
             <div className="image">
               <img
@@ -109,6 +110,15 @@ export default function Home() {
               />
             </div>
           </div>
+        </div>
+        <div className="demo_video">
+          <h6 className="section-heading">Working Demo 🚀</h6>
+          <iframe
+            className="yt_video"
+            width="600"
+            height="400"
+            src="https://www.youtube.com/embed/7pioxo5yjGI?controls=0"
+          ></iframe>
         </div>
 
         {/* <div className="post-item">
@@ -125,7 +135,7 @@ export default function Home() {
             <img className="developer-img" src={developer} alt="" />
           </div>
           <Row className="inspiration">
-            <h6 className="section-heading">My Project Inspiration</h6>
+            <h6 className="section-heading">My Project Inspiration💡</h6>
             <p>
               Colleges are the place where we come to home mentioning about
               losing our new earphone which might have kept in a desk but not
@@ -161,7 +171,7 @@ export default function Home() {
         <Container fluid>
           <div className="total-about">
             <div ref={ref} className="about-heading">
-              <h6 className="section-heading">How it works ?</h6>
+              <h6 className="section-heading">How it works ⚒️?</h6>
             </div>
             <div className="about-card">
               <div className="info">
@@ -210,7 +220,7 @@ export default function Home() {
         <Container fluid>
           <div className="total-contact-form">
             <div className="contact-title">
-              <h6 className="section-heading"> Contact Form</h6>
+              <h6 className="section-heading"> Contact Form 📨📬</h6>
               <p>
                 If there is something you want to suggest or may be just a hello
                 do reach out.
