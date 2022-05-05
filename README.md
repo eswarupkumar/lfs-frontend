@@ -2,7 +2,9 @@
 
 
 # Project Inspiration
-Colleges are the place where we come to home mentioning about losing our new earphone which might have kept in a desk but not sure if it's still there. This problem feels so relatable to most of the college students. A problem will still remain the same until someone builds a solution to it.
+
+College is a big place with a diverse group of individuals and therefore we cannot always keep track of our items.You may end up losing personal stuff e. earbuds or misplace your smartphone which is very relatable to most  college students.I aim to solve this by building a automated way to help students with quick recovery of
+their lost and found items 
 
 # Features
 * Get notified when a lost/found item is listed.
@@ -11,7 +13,7 @@ Colleges are the place where we come to home mentioning about losing our new ear
 * Simple and Easy to use.
 
 
-# Technolgies Used
+# Technologies Used
 * React JS (Frontend)
 * Node JS, Express JS (Backend)
 * MongoDB (Database)
