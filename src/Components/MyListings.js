@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { setConstraint } from "../constraints";
 import Navbar from "../Components/Navbar";
 import "../css/item_card.css";
-import '../css/mylisting.css'
+import "../css/mylisting.css";
 import Axios from "axios";
 import { Card, Col, Container, Row, Badge } from "react-bootstrap";
 
@@ -76,8 +76,17 @@ export default function Feed() {
         data.reverse().map((item) => {
           let created_date = new Date(item.createdAt);
           // console.log(date.toString());
-          let createdAt=created_date.getDate()+"/"+created_date.getMonth()+"/"+created_date.getFullYear()+" "+created_date.getHours()+":"+created_date.getMinutes()
-          
+          let createdAt =
+            created_date.getDate() +
+            "/" +
+            created_date.getMonth() +
+            "/" +
+            created_date.getFullYear() +
+            " " +
+            created_date.getHours() +
+            ":" +
+            created_date.getMinutes();
+
           // var sec = created_date.getSeconds();
 
           // category.postitem.findOne({createdBy: item.createdBy}).populate('name')
@@ -98,13 +107,13 @@ export default function Feed() {
               <Col key={item.name} style={{ marginTop: "2%" }} md={3}>
                 {/* <li key={item.name}>{item.name}</li>
                 <li key={item.description}>{item.description}</li> */}
-                <Card bsPrefix="item-card" style={{maxHeight:"465px"}} >
+                <Card bsPrefix="item-card" style={{ maxHeight: "465px" }}>
                   <Card.Img
                     variant="top"
                     src={`https://lost-and-found-system.s3.amazonaws.com/${item.itemPictures[0].img}`}
                   />
-                  <Card.Body bsPrefix="card-body" >
-                  {item.status ? (
+                  <Card.Body bsPrefix="card-body">
+                    {item.status ? (
                       <>
                         {" "}
                         <Badge pill variant="success">

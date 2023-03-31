@@ -94,7 +94,7 @@ export default function Feed() {
           //   // prints "The author is Ian Fleming"
           // });
           // console.log(item.itemPictures[0].img)
-          if (item.type === "Lost" && item.status===true) {
+          if (item.type === "Lost" && item.status === true) {
             let user = false;
             if (item.createdBy === user_info._id) {
               user = true;
@@ -237,7 +237,7 @@ export default function Feed() {
       .catch((err) => {
         console.log("Error :", err);
       });
-  },[]);
+  }, []);
 
   return (
     <div>

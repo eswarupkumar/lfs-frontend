@@ -3,7 +3,7 @@ import { setConstraint } from "../constraints";
 import "../css/Navbar.css";
 import axios from "axios";
 import LostItem from "./Lost_item";
-import { ToastProvider } from 'react-toast-notifications';
+import { ToastProvider } from "react-toast-notifications";
 // import profile_icon from "../img/profile-icon.png";
 // import { Dropdown } from "react-bootstrap";
 // import Login from './Login'
@@ -78,7 +78,11 @@ function Navbar() {
           </ul>
         </div>
         <div style={token ? {} : { display: "none" }} className="postsignin">
-        <ToastProvider autoDismiss={true} placement={"bottom-right"}><div><LostItem /></div></ToastProvider>
+          <ToastProvider autoDismiss={true} placement={"bottom-right"}>
+            <div>
+              <LostItem />
+            </div>
+          </ToastProvider>
           {/* <Found_item /> */}
           <ul>
             <a style={{ textDecoration: "none", color: "white" }} href="/feed">

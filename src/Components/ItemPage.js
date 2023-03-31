@@ -26,7 +26,7 @@ import { Carousel } from "react-responsive-carousel";
 function ItemPage(props) {
   const { addToast } = useToasts();
   const [Itemname, setItemname] = useState("");
-  const [ActivationRequest,setActivationRequest]=useState(false)
+  const [ActivationRequest, setActivationRequest] = useState(false);
   // const [PhoneNumber, setPhoneNumber] = useState();
   const [Createdby, setCreatedby] = useState("");
   const [show, setShow] = useState(false);
@@ -58,29 +58,29 @@ function ItemPage(props) {
     setResponse(answer);
     setvalidateUser(true);
   };
-  const handleCloseActivation=()=>{
-    setActivationRequest(false)
-  }
-  const submitActivate=()=>{
+  const handleCloseActivation = () => {
+    setActivationRequest(false);
+  };
+  const submitActivate = () => {
     // console.log("dd")
     Axios({
-      method:"POST",
-      url:`https://lfs-backend.herokuapp.com/activateItem/${item_id}`
+      method: "POST",
+      url: `http://localhost:5000/activateItem/${item_id}`,
     })
-    .then((res)=>{
-      console.log("Activated")
-      addToast("Item Activated 👍", {
-        appearance: "success",
+      .then((res) => {
+        console.log("Activated");
+        addToast("Item Activated 👍", {
+          appearance: "success",
+        });
+        setTimeout(() => {
+          window.location.reload();
+        }, 2000);
+      })
+      .catch((err) => {
+        console.log(err);
       });
-      setTimeout(() => {
-        window.location.reload();
-      }, 2000);
-    })
-    .catch((err)=>{
-      console.log(err)
-    })
-    setActivationRequest(false)
-  }
+    setActivationRequest(false);
+  };
   const handleCloseQuestion = () => setQuestion(false);
   const handleShowQuestion = () => setQuestion(true);
   const handleShow = () => setShow(true);
@@ -175,7 +175,16 @@ function ItemPage(props) {
             </h3>
             <hr></hr>
             <h3 className="attributes">
-              Status :{data.status?(<><span className="details"> Active</span></>):(<><span className="details">Inactive</span></>)}{" "}
+              Status :
+              {data.status ? (
+                <>
+                  <span className="details"> Active</span>
+                </>
+              ) : (
+                <>
+                  <span className="details">Inactive</span>
+                </>
+              )}{" "}
             </h3>
             <hr></hr>
             <h6 className="attributes">
@@ -193,7 +202,10 @@ function ItemPage(props) {
                   <></>
                 ) : (
                   <>
-                    <Button variant="primary" onClick={()=>setActivationRequest(true)}>
+                    <Button
+                      variant="primary"
+                      onClick={() => setActivationRequest(true)}
+                    >
                       Reactivate Item
                     </Button>
                   </>
@@ -493,7 +505,11 @@ function ItemPage(props) {
         <div>{authenticationPage}</div>
       </Container>
 
-      <Modal show={ActivationRequest} onHide={handleCloseActivation} backdrop="static">
+      <Modal
+        show={ActivationRequest}
+        onHide={handleCloseActivation}
+        backdrop="static"
+      >
         <Modal.Body>
           <p>Are you sure ? </p>
         </Modal.Body>

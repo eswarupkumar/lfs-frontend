@@ -23,12 +23,12 @@ function Login() {
     axios({
       url: "https://lfs-backend.herokuapp.com/login",
       method: "POST",
-      data: payload
-      
+      data: payload,
+
       // url: "http://localhost:5000/login"
     })
       .then((response) => {
-        // console.log("Response is :",response)
+        console.log("Response is :", response);
         if (response.data.user) {
           //Authentication done.
           setuser_info(response.data.user);
@@ -76,7 +76,7 @@ function Login() {
   return (
     <>
       <Navbar />
-      <div style={{display:"flex"}}>
+      <div style={{ display: "flex" }}>
         {/* <img
           src={developer}
           style={{ width: "500px", height: "500px" }}

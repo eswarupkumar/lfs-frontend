@@ -58,7 +58,7 @@ function LostItem() {
         // url: "http://localhost:5000/login"
       })
         .then((response) => {
-          // console.log(response)
+          console.log(response);
         })
         .then(() => {
           // eslint-disable-next-line no-lone-blocks
@@ -81,19 +81,18 @@ function LostItem() {
             appearance: "error",
           });
         });
-    }
-    else{
+    } else {
       addToast("Did you missed any of the required fields 🙄?", {
         appearance: "error",
       });
     }
   };
-  const temporaryShut=()=>{
+  const temporaryShut = () => {
     addToast("New item listing has been disabled temporarily.", {
       appearance: "warning",
     });
     setShow(false);
-  }
+  };
   return (
     <div>
       <Button variant="primary" onClick={handleShow}>
@@ -112,7 +111,9 @@ function LostItem() {
         <Modal.Body>
           <Form>
             <Form.Group>
-              <Form.Label>Item name<span style={{color:"red"}}>*</span></Form.Label>
+              <Form.Label>
+                Item name<span style={{ color: "red" }}>*</span>
+              </Form.Label>
               <Form.Control
                 type="text"
                 placeholder="Enter item"
@@ -122,7 +123,9 @@ function LostItem() {
             </Form.Group>
 
             <Form.Group>
-              <Form.Label>Description<span style={{color:"red"}}>*</span></Form.Label>
+              <Form.Label>
+                Description<span style={{ color: "red" }}>*</span>
+              </Form.Label>
               <Form.Control
                 as="textarea"
                 placeholder="Enter Description"
@@ -142,7 +145,9 @@ function LostItem() {
             </Form.Group>
 
             <Form.Group>
-              <Form.Label>Item type<span style={{color:"red"}}>*</span></Form.Label>
+              <Form.Label>
+                Item type<span style={{ color: "red" }}>*</span>
+              </Form.Label>
               <Form.Control
                 as="select"
                 required={true}
